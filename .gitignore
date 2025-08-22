@@ -1,17 +1,36 @@
-### Maven template
-target/
-pom.xml.tag
-pom.xml.releaseBackup
-pom.xml.versionsBackup
-pom.xml.next
-release.properties
-dependency-reduced-pom.xml
-buildNumber.properties
-.mvn/timing.properties
-.mvn/wrapper/maven-wrapper.jar
-.flattened-pom.xml
+# Eclipse project files.
+.project
+.classpath
+.settings/
+assembly/.project
+assembly/.classpath
+assembly/.settings/
+bukkit/.project
+bukkit/.classpath
+bukkit/.settings/
+core/.project
+core/.classpath
+core/.settings/
+bungee/.project
+bungee/.classpath
+bungee/.settings/
+sponge/.project
+sponge/.classpath
+sponge/.settings/
+velocity/.project
+velocity/.classpath
+velocity/.settings/
 
-# IntelliJ project files
+# Build artifacts.
+.gradle/
+build/
+assembly/build/
+bukkit/build/
+bungee/build/
+core/build/
+velocity/build/
+
+# IntelliJ project files.
 .idea
 *.iml
 out

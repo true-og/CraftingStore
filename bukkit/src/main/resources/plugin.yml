@@ -1,10 +1,10 @@
 name: CraftingStore
 main: net.craftingstore.bukkit.CraftingStoreBukkit
-version: ${craftingstore-version}
+version: ${version}
 authors: [Tim_kwakman, thijs_a]
 prefix: CraftingStore
 softdepend: [PlaceholderAPI, Vault]
-api-version: "1.13"
+api-version: '${apiVersion}'
 folia-supported: true
 commands:
   craftingstore:
