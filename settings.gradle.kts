@@ -1,4 +1,4 @@
-rootProject.name = "craftingstore"
+rootProject.name = "CraftingStore"
 
 ProcessBuilder("sh", "bootstrap.sh").directory(rootDir).inheritIO().start().let {
     if (it.waitFor() != 0) throw GradleException("bootstrap.sh failed")
