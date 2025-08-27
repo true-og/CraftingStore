@@ -137,7 +137,7 @@ subprojects {
 }
 
 project(":core") {
-    java { toolchain { languageVersion.set(JavaLanguageVersion.of(8)) } }
+    java { toolchain { languageVersion.set(JavaLanguageVersion.of(17)) } }
     dependencies {
         compileOnly("com.google.code.gson:gson:2.8.9")
         implementation("com.github.thijsa:socket.io-client-java:1.0.3")
@@ -171,21 +171,8 @@ project(":bukkit") {
     }
 }
 
-project(":bungee") {
-    java { toolchain { languageVersion.set(JavaLanguageVersion.of(8)) } }
-    dependencies {
-        implementation(project(":core"))
-        compileOnly("net.md-5:bungeecord-api:1.10-SNAPSHOT")
-    }
-    tasks.named<ProcessResources>("processResources") {
-        val props = mapOf("version" to rootProject.version.toString())
-        inputs.properties(props)
-        filesMatching("**/*") { expand(props) }
-    }
-}
-
 project(":sponge") {
-    java { toolchain { languageVersion.set(JavaLanguageVersion.of(8)) } }
+    java { toolchain { languageVersion.set(JavaLanguageVersion.of(17)) } }
     dependencies {
         implementation(project(":core"))
         compileOnly("org.spongepowered:spongeapi:7.1.0")
@@ -198,7 +185,7 @@ project(":sponge") {
 }
 
 project(":velocity") {
-    java { toolchain { languageVersion.set(JavaLanguageVersion.of(8)) } }
+    java { toolchain { languageVersion.set(JavaLanguageVersion.of(17)) } }
     dependencies {
         implementation(project(":core"))
         compileOnly("com.velocitypowered:velocity-api:3.0.0")
@@ -220,7 +207,6 @@ project(":assembly") {
     dependencies {
         implementation(project(":core"))
         implementation(project(":bukkit"))
-        implementation(project(":bungee"))
         implementation(project(":sponge"))
         implementation(project(":velocity"))
     }

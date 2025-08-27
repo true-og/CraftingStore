@@ -12,4 +12,4 @@ file("libs")
         project(":libs:${dir.name}").projectDir = dir
     }
 
-include(":core", ":bukkit", ":bungee", ":sponge", ":assembly", ":velocity")
+include(":core", ":bukkit", ":sponge", ":assembly", ":velocity")
