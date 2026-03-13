@@ -87,11 +87,19 @@ tasks.shadowJar {
     exclude("io.github.miniplaceholders.*") // Exclude the MiniPlaceholders package from being shadowed.
     archiveClassifier.set("") // Use empty string instead of null.
     minimize()
+    enabled = false // Root project does not produce the server-installable plugin jar.
 }
 
 tasks.jar { archiveClassifier.set("part") } // Applies to root jarfile only.
 
-tasks.build { dependsOn(tasks.spotlessApply, tasks.shadowJar) } // Build depends on spotless and shadow.
+val copyServerJarToRootBuildLibs by
+    tasks.registering(Copy::class) {
+        dependsOn(":assembly:shadowJar")
+        from(project(":assembly").layout.buildDirectory.file("libs/CraftingStore-${rootProject.version}.jar"))
+        into(layout.buildDirectory.dir("libs"))
+    }
+
+tasks.build { dependsOn(tasks.spotlessApply, copyServerJarToRootBuildLibs) } // Build depends on spotless and server jar copy.
 
 /* --------------------------- Javac opts ------------------------------- */
 tasks.withType<JavaCompile>().configureEach {
