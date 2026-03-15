@@ -99,7 +99,9 @@ val copyServerJarToRootBuildLibs by
         into(layout.buildDirectory.dir("libs"))
     }
 
-tasks.build { dependsOn(tasks.spotlessApply, copyServerJarToRootBuildLibs) } // Build depends on spotless and server jar copy.
+tasks.build {
+    dependsOn(tasks.spotlessApply, copyServerJarToRootBuildLibs)
+} // Build depends on spotless and server jar copy.
 
 /* --------------------------- Javac opts ------------------------------- */
 tasks.withType<JavaCompile>().configureEach {
