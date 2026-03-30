@@ -1,2 +1,2 @@
-api-key: ''
-disable-buy-command: false
+api-key: '^{CRAFTINGSTORE_API_KEY}'
+disable-buy-command: true
